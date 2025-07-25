@@ -21,5 +21,5 @@ function reset () {
   setGain(1)
 }
 
-const isDisabled = computed(() => round(gain.value, 2) === 1)
+const isDisabled = computed(() => round(gain.value, 3) === 1)
 </script>

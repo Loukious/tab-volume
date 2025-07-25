@@ -32,7 +32,7 @@ const props = withDefaults(defineProps<{
   modelValue: 50,
   min: 0,
   max: 100,
-  step: 1,
+  step: 0.1,
 })
 
 const emit = defineEmits<{

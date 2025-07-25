@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ControlRange :model-value="gain" :max="round(settings.max / 100, 2)" :step="0.1" :style="{ background }" @update:model-value="onUpdateControlValue" />
+    <ControlRange :model-value="gain" :max="round(settings.max / 100, 3)" :step="0.01" :style="{ background }" @update:model-value="onUpdateControlValue" />
   </div>
 </template>
 
@@ -20,7 +20,7 @@ const { colors } = useTailwind()
 const { settings } = useSettings()
 
 const background = computed(() => {
-  const fillTo = round((gain.value / (settings.value.max / 100) * 100))
+  const fillTo = round((gain.value / (settings.value.max / 100) * 100), 1)
   const fillAdjustment = round(map(gain.value, 0, settings.value.max / 100, 10, -10), 2)
   const fill = `calc(${fillTo}% + ${fillAdjustment}px)`
 
@@ -28,6 +28,6 @@ const background = computed(() => {
 })
 
 function onUpdateControlValue (value: number) {
-  setGain(round(value, 2))
+  setGain(round(value, 3))
 }
 </script>

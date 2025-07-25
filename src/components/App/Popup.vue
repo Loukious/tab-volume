@@ -37,9 +37,9 @@ function onWheel (event: WheelEvent) {
   event.preventDefault()
 
   let newGain = gain.value
-  newGain -= Math.sign(event.deltaY) * 0.1
+  newGain -= Math.sign(event.deltaY) * 0.01
   newGain = clamp(newGain, 0, settings.value.max / 100)
-  newGain = round(newGain, 2)
+  newGain = round(newGain, 3)
 
   setGain(newGain)
 }

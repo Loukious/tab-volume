@@ -69,11 +69,11 @@ async function changeBadgeSetting (settings: SettingsType) {
 async function runCommandChangeVolume (command: string) {
   const settings = await getSettings()
 
-  const change = command === CommandVolumeEnum.volumeUp ? 0.1 : -0.1
+  const change = command === CommandVolumeEnum.volumeUp ? 0.01 : -0.01
 
   let gain = await getGain()
   gain = clamp(gain + change, 0, settings.max / 100)
-  gain = round(gain, 2)
+  gain = round(gain, 3)
 
   setGain(gain)
 }

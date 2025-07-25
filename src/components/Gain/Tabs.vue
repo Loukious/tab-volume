@@ -15,7 +15,7 @@
         {{ tab.title }}
       </dd>
       <dd v-if="tabsWithGain && tab.id" class="ml-auto pl-1 font-arial font-bold text-sm">
-        {{ round(toNumber(tabsWithGain[tab.id]) * 100) }}%
+        {{ round(toNumber(tabsWithGain[tab.id]) * 100, 2) }}%
       </dd>
     </button>
   </dl>

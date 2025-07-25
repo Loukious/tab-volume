@@ -5,7 +5,7 @@
         <ControlLabel for="max" class="block mb-2">
           {{ loc('app_settings_max_label') }}
         </ControlLabel>
-        <ControlNumberMinMax id="max" v-model="settings.max" name="max" :min="100" :max="10000" :step="10" />
+        <ControlNumberMinMax id="max" v-model="settings.max" name="max" :min="100" :max="10000" :step="1" />
       </div>
     </div>
     <div>
@@ -44,8 +44,8 @@ function onReset () {
 async function updateGain () {
   const gain = await getGain()
 
-  if (settings.value.max < round(gain * 100)) {
-    setGain(round(settings.value.max / 100, 2))
+  if (settings.value.max < round(gain * 100, 1)) {
+    setGain(round(settings.value.max / 100, 3))
   }
 }
 </script>
